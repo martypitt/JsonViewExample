@@ -7,7 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>JsonViewExample </name>
 	<properties>
-		<spring.version>3.1.2.RELEASE</spring.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+		<jackson.version>2.2.2</jackson.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -67,6 +68,20 @@
 			<artifactId>org.springframework.spring-library</artifactId>
 			<type>libd</type>
 			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>
+						com.springsource.org.codehaus.jackson.mapper
+					</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>
+						com.springsource.com.fasterxml.jackson.core.jackson-core
+					</artifactId>
+					<groupId>com.fasterxml.jackson.core</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -90,14 +105,19 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>1.9.2</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.2</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+  			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-logging</groupId>
